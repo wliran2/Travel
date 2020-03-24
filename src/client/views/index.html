@@ -3,39 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Travel App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel App</title>
 </head>
 
 <body>
-    <div id="app">
-        <div class="holder headline">
-            Travel - connect to OpenWeatherMap
+    <header>
+        <div class="logo">
+            <img src="/src/client/styles/logo.jpg" alt="logo">
         </div>
-        <div class="holder zip">
-            <label for="zip">Enter country here</label>
-            <input type="text" id="zip" placeholder="enter zip code here">
+        <div class="title">
+            please enter the country that you would like to Travel:
         </div>
-        <div class="holder feel">
-            <label for="feelings">How are you feeling today?</label>
-            <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-            <button id="generate" type="submit"> Generate </button>
-        </div>
-        <div class="holder entry">
-            <div class="title">Most Recent Entry:</div>
-            <div id="entryHolder">
-                <div>the date is:</div>
-                <div id="date"></div>
-                <div>temp for this Zip:</div>
-                <div id="temp"></div>
-                <div>user response:</div>
-                <div id="content"></div>
+    </header>
+
+    <main>
+        <section>
+            <form class="" onsubmit="return app(event)">
+                <div id="err"></div>
+                <br>
+                <input id="url" type="text" name="input" value="" placeholder="Please Enter a URL">
+                <input type="submit" id="button" name="button" value="submit" onclick="return Client.app(event)" onsubmit="return app(event)">
+            </form>
+        </section>
+
+
+        <div id="app">
+            <div class="holder headline">
+                Travel - App
             </div>
+            <div class="holder place">
+                <label for="place">Enter country here</label>
+                <input type="text" id="place" placeholder="enter the place that you want here">
+            </div>
+            <div class="holder feel">
+                <label for="feelings">How are you feeling today?</label>
+                <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+                <button id="generate" type="submit"> Generate </button>
+            </div>
+            <div class="holder entry">
+                <div class="title">Most Recent Entry:</div>
+                <div id="entryHolder">
+                    <div>the date is:</div>
+                    <div id="date"></div>
+                    <div>temp for this Zip:</div>
+                    <div id="temp"></div>
+                    <div>user response:</div>
+                    <div id="content"></div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
-
+    </main>
+    <footer>
+        <p>Liran weisbord - project num# 6</p>
+    </footer>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 body {
-    background: #bebe3e;
+    background: #acaca9;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -9,7 +9,7 @@ body {
     /* grid-template-columns:  */
     height: 150vh;
     background: #615151;
-    color: #f0d43a;
+    color: #ddbf14;
     justify-content: center;
     grid-gap: 1em;
     font-size: 20px;
@@ -38,12 +38,16 @@ label {
     font-size: 27px;
 }
 
+#place {
+    display: inline-block;
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
 input {
-    display: block;
-    height: 60px;
+    height: 30px;
     width: 320px;
-    background: #22b2da;
-    color: #f0d43a;
+    color: #000000;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -53,7 +57,7 @@ button {
     width: 300px;
     height: 100px;
     background: #3b4a6b;
-    color: #f0d43a;
+    color: #000000;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -62,13 +66,6 @@ button {
 
 h1 {
     font-size: 36px;
-}
-
-textarea {
-    background: #22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
 }
 
 
@@ -86,18 +83,18 @@ button:focus {
 
 ::placeholder {
     /* Firefox, Chrome, Opera */
-    color: #f0d43a;
+    color: #050505;
     font-family: 'Oswald', sans-serif;
 }
 
 :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: #f0d43a;
+    color: #080808;
     font-family: 'Oswald', sans-serif;
 }
 
 ::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: #f0d43a;
+    color: #000000;
     font-family: 'Oswald', sans-serif;
 }

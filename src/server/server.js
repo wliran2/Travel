@@ -1,12 +1,11 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const baseURL = 'http://api.geonames.org/searchJSON?q=london&maxRows=10&';
-
-
-var bodyParser = require('webpack-body-parser')
-    // Setup empty JS object to act as endpoint for all routes
+// Setup empty JS object to act as endpoint for all routes
 projectData = {};
+
+
+const baseURL = 'http://api.geonames.org/searchJSON?q=london&maxRows=10&';
 
 // Require Express to run server and routes
 const express = require('express');
@@ -36,24 +35,22 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
-app.post('/searchPlace', getPlace);
+app.get('/place', getPlace);
 
 function getPlace(req, res) {
     res.send();
 }
 
-
-
 // POST from site
 const data = [];
-app.post('/src', website)
+app.post('/place', getPlace)
 
-function website(req, res) {
+function getPlace(req, res) {
     data.push(req.body)
     console.log(data)
 }
 
-app.post('/src', add);
+app.post('/place', add);
 
 function add(req, res) {
     newEntry = {

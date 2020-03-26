@@ -4,8 +4,16 @@ dotenv.config();
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
-
 const baseURL = 'http://api.geonames.org/searchJSON?q=london&maxRows=10&';
+
+/*concest the API with the dotenv 
+var textapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+});
+*/
+
+
 
 // Require Express to run server and routes
 const express = require('express');
@@ -23,11 +31,24 @@ app.use(bodyParser.json());
 //const cors = require('cors');
 //app.use(cors());
 
+//support diffrent domains - in my case donmine change is the port 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 // Initialize the main project folder
 app.use(express.static('dist'));
 
+//GET route
+app.get('/place', getPlace);
+// POST from site
+app.post('/place', getPlace);
+
+
 // Setup Server
-const port = 8000;
+const port = 8080;
 const server = app.listen(port, listening);
 
 function listening() {
@@ -35,7 +56,7 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
-app.get('/place', getPlace);
+
 
 function getPlace(req, res) {
     res.send();

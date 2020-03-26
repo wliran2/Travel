@@ -5,9 +5,9 @@ body {
 
 #app {
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    grid-auto-rows: minmax(150px);
     /* grid-template-columns:  */
-    height: 150vh;
+    height: 250px;
     background: #615151;
     color: #ddbf14;
     justify-content: center;

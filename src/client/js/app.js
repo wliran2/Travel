@@ -1,4 +1,4 @@
-function performAction(e) {
+function performAction(event) {
     event.preventDefault()
     const newPlace = document.getElementById('place').value;
     getPlace('http://localhost:8081/place', { newPlace: newPlace })

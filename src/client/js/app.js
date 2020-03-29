@@ -1,9 +1,9 @@
-function performAction(event) {
+function app(event) {
     event.preventDefault()
     const newPlace = document.getElementById('place').value;
-    getPlace('http://localhost:8081/place', { newPlace: newPlace })
+    console.log(newPlace)
 
-    const getPlace = async(url, data = {}) => {
+    const getPlace = async(url = '', data = {}) => {
         console.log(data);
         const response = await fetch(url, {
             method: 'POST',
@@ -22,6 +22,9 @@ function performAction(event) {
         }
     }
 
+    getPlace('http://localhost:8081/place', { newPlace: newPlace })
+
+
 };
 
-export { performAction };
+export { app }

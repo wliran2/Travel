@@ -1,4 +1,4 @@
-import { performAction } from './js/app'
+import { app } from './js/app'
 
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -7,8 +7,8 @@ import './styles/form.scss'
 import './styles/header.scss'
 import './styles/logo.jpg'
 
-console.log(performAction);
+
 
 export {
-    performAction,
+    app,
 }

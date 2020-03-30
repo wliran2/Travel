@@ -1,4 +1,6 @@
+import 'babel-polyfill';
 import { app } from './js/app'
+
 
 import './styles/resets.scss'
 import './styles/base.scss'

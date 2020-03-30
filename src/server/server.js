@@ -27,10 +27,6 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Cors for cross origin allowance
-//const cors = require('cors');
-//app.use(cors());
-
 //support diffrent domains - in my case donmine change is the port 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -42,13 +38,14 @@ app.use(function(req, res, next) {
 app.use(express.static('dist'));
 
 //GET route
-app.get('/place', getPlace);
+//app.get('/place', getPlace);
+
 // POST from site
 app.post('/place', getPlace);
 
 
 // Setup Server
-const port = 8080;
+const port = 8081;
 const server = app.listen(port, listening);
 
 function listening() {
@@ -56,22 +53,21 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
-
-
 function getPlace(req, res) {
-    res.send();
+    res.send(data);
+    console.log(data)
 }
 
 // POST from site
 const data = [];
-app.post('/place', getPlace)
+app.post('/place2', getPlace)
 
 function getPlace(req, res) {
     data.push(req.body)
     console.log(data)
 }
 
-app.post('/place', add);
+app.post('/place2', add);
 
 function add(req, res) {
     newEntry = {

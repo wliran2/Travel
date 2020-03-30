@@ -1,6 +1,8 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+const http = require('http');
+
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -53,19 +55,35 @@ function listening() {
     console.log(`running on localhost: ${port}`);
 };
 
-function getPlace(req, res) {
-    res.send(data);
-    console.log(data)
-}
 
 // POST from site
 const data = [];
 app.post('/place2', getPlace)
 
 function getPlace(req, res) {
-    data.push(req.body)
-    console.log(data)
+    const geoAPI = 'http://api.geonames.org/searchJSON?q=';
+    const place = res.body;
+    const userName = 'wliran';
+    const response = http.get(geoAPI + place + '&maxRows=1&userName=' + userName, (resp) => {
+        let data = '';
+
+        // A chunk of data has been recieved.
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
+
+        // The whole response has been received. Print out the result.
+        resp.on('end', () => {
+            console.log(JSON.parse(data));
+            res.send(data)
+        });
+
+    }).on("error", (err) => {
+        console.log("Error: " + err.message);
+    });
 }
+
+
 
 app.post('/place2', add);
 

@@ -1,4 +1,4 @@
-//const http = require('http');
+const http = require('http');
 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
 app.use(express.static('dist'));
 
 //GET route
-app.get('/place', getPlace);
+app.get('/place', getPlaceByParam);
 // POST from site
 const data = [];
 app.post('/place', getPlace)
@@ -59,18 +59,37 @@ function getPlace(req, res) {
     const linkAPI = geoAPI + data + '&maxRows=1&userName=' + userName
     console.log(linkAPI)
 
-    res.send(linkAPI)
-
+    const result = getPlaceByParam(linkAPI, res);
+    console.log(result);
+    //getweather(result);
 }
 
+function getPlaceByParam(linkAPI, res) {
+    http.get(linkAPI, (resp) => {
+        let data = '';
 
+        // A chunk of data has been recieved.
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
 
-//getWeather(JSON.parse(linkAPI), res)
+        // The whole response has been received. Print out the result.
+        resp.on('end', () => {
+            console.log(JSON.parse(data));
+            res.send(data)
+        });
+
+    }).on("error", (err) => {
+        console.log("Error: " + err.message);
+    });
+
+}
 /*
-function getweather(data, res) {
+function getweather(result) {
 
-    latitude = res.body.lat
-  //longitude = res.
-  //country = res.
+    const latitude = res.body.lat
+    console.log(latitude)
+        //longitude = lng 
+        //countryName = countryName
 }
 */

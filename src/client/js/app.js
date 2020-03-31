@@ -12,6 +12,7 @@ function app(event) {
             credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
+
             },
             body: JSON.stringify(data),
 

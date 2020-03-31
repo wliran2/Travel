@@ -53,64 +53,24 @@ function listening() {
 };
 
 function getPlace(req, res) {
-    data.push(req.body)
-    console.log(data)
-
+    data.push(req.body.newPlace)
     const geoAPI = 'http://api.geonames.org/searchJSON?q=';
-    const place = req.body;
-    console.log(place)
-
     const userName = 'wliran';
     const linkAPI = geoAPI + data + '&maxRows=1&userName=' + userName
-
     console.log(linkAPI)
 
+    res.send(linkAPI)
 
 }
 
+
+
+//getWeather(JSON.parse(linkAPI), res)
 /*
-function getPlacexxx(req, res) {
-    const geoAPI = 'http://api.geonames.org/searchJSON?q=';
-    const place = res.body;
-    const userName = 'wliran';
-    const response = http.get(geoAPI + place + '&maxRows=1&userName=' + userName, (resp) => {
-        let data = '';
+function getweather(data, res) {
 
-        // A chunk of data has been recieved.
-        resp.on('data', (chunk) => {
-            data += chunk;
-        });
-        // The whole response has been received. Print out the result.
-        resp.on('end', () => {
-            console.log(JSON.parse(data));
-            getw(JSON.parse(data), response);
-
-        });
-
-    }).on("error", (err) => {
-        console.log("Error: " + err.message);
-    });
+    latitude = res.body.lat
+  //longitude = res.
+  //country = res.
 }
-
-function getw(data, res) {
-  
-        latitude = res.data.lat
-        longitude = res.data.lng
-        country = res.data.countryName
-
-        console.log(country)
-   
-}
- */
-app.post('/place2', add);
-
-function add(req, res) {
-    newEntry = {
-        temp: req.body.temp,
-        date: req.body.date,
-        userResponse: req.body.newfeelings
-    }
-    data.push(newEntry)
-    res.send(data)
-    console.log(data)
-}
+*/

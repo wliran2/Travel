@@ -24,7 +24,7 @@ function app(event) {
             console.log("there is an Error: ", error);
         }
     }
-    getPlace('http://localhost:8081/place', { newPlace: newPlace })
+    getPlace('http://localhost:8081/place', { newPlace })
 
 };
 

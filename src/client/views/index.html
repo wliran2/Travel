@@ -18,14 +18,21 @@
     <main>
         <section>
             <div class="title">
-                please enter the country that you would like to Travel:
+                please enter the City & Date that you would like to Travel:
             </div>
             <form class="" onsubmit="return app(event)">
                 <div id="err"></div>
                 <br>
+                <label for="city" id="city_title">Enter the city name:</label>
                 <input id="place" type="text" name="input" value="" placeholder="enter a place">
                 <input type="submit" id="button" name="button" value="Generat" onclick="return Client.app(event)" onsubmit="return app(event)">
             </form>
+            <br>
+            <form>
+                <label for="Date" id="date_title">Enter the Date:</label>
+                <input type="date" id="date" name="date">
+            </form>
+
         </section>
 
         <div id="app">

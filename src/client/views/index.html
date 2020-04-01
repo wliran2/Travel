@@ -25,13 +25,11 @@
                 <br>
                 <label for="city" id="city_title">Enter the city name:</label>
                 <input id="place" type="text" name="input" value="" placeholder="enter a place">
+                <label for="Date" id="date_title">Enter the Date:</label>
+                <input id="date" type="text" name="input" value="" placeholder="mm/dd/yyyy">
                 <input type="submit" id="button" name="button" value="Generat" onclick="return Client.app(event)" onsubmit="return app(event)">
             </form>
             <br>
-            <form>
-                <label for="Date" id="date_title">Enter the Date:</label>
-                <input type="date" id="date" name="date">
-            </form>
 
         </section>
 
@@ -41,14 +39,12 @@
             </div>
 
             <div class="holder entry">
-                <div class="title">Most Recent Entry:</div>
+                <div class="title">Travel planner:</div>
                 <div id="entryHolder">
-                    <div>the date is:</div>
-                    <div id="date"></div>
-                    <div>temp for this Zip:</div>
-                    <div id="temp"></div>
-                    <div>user response:</div>
-                    <div id="content"></div>
+                    <div>My trip to:</div>
+                    <div id="tripLocation"></div>
+                    <div>Typical weather for then is:</div>
+                    <div id="typicalWeather"></div>
                 </div>
             </div>
 

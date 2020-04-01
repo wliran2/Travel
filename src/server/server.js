@@ -59,8 +59,8 @@ function getPlace(req, res) {
     const linkAPI = geoAPI + data + '&maxRows=1&userName=' + userName
     console.log(linkAPI)
 
-    const result = getPlaceByParam(linkAPI, res);
-    console.log(result);
+    getPlaceByParam(linkAPI, res);
+
     //getweather(result);
 }
 
@@ -80,12 +80,16 @@ function getPlaceByParam(linkAPI, res) {
         });
 
     }).on("error", (err) => {
-        console.log("Error: " + err.message);
+        console.log("there is an Error: " + err.message);
     });
 
 }
+
 /*
 function getweather(result) {
+    // APPKEY= 23e1acafd6361d2b37d06fded5712cf8
+    //url for darkSky https://api.darksky.net/forecast/[key]/[latitude],[longitude]
+         https://api.darksky.net/forecast/23e1acafd6361d2b37d06fded5712cf8/40.4165,-3.70256   
 
     const latitude = res.body.lat
     console.log(latitude)

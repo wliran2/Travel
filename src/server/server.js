@@ -4,21 +4,15 @@ const https = require('https');
 const dotenv = require('dotenv');
 dotenv.config();
 
+//const userName_key = process.env.userName_key;
+
+
 var path = require('path');
 const express = require('express');
 var bodyParser = require('webpack-body-parser');
 
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
-
-//const baseURL = 'http://api.geonames.org/searchJSON?q=london&maxRows=10&';
-
-/*concest the API with the dotenv 
-var textapi = new aylien({
-    application_id: process.env.API_ID,
-    application_key: process.env.API_KEY
-});
-*/
 
 // Start up an instance of app
 const app = express();
@@ -55,9 +49,10 @@ function listening() {
 };
 
 function getPlace(req, res) {
+    //http://api.geonames.org/searchJSON?q=paris&maxRows=1&userName=wliran
     const geoAPI = 'http://api.geonames.org/searchJSON?q=';
-    const userName = 'wliran';
-    const linkAPI = geoAPI + req.body.city + '&maxRows=1&userName=' + userName
+    const userName_key = process.env.userName_key;
+    const linkAPI = geoAPI + req.body.city + '&maxRows=1&userName=' + userName_key
     getPlaceByParam(linkAPI, res, req.body.travelDate);
 
 }
@@ -75,7 +70,6 @@ function getPlaceByParam(linkAPI, res, travelDate) {
             console.log(JSON.parse(data));
             const jsonData = JSON.parse(data)
             getweather(travelDate, jsonData.geonames[0].lng, jsonData.geonames[0].lat, res);
-            //res.send(data)
         });
     }).on("error", (err) => {
         console.log("there is an Error: " + err.message);
@@ -83,9 +77,10 @@ function getPlaceByParam(linkAPI, res, travelDate) {
 }
 
 function getweather(travelDate, lng, lat, res) {
-    const APPKEY = '23e1acafd6361d2b37d06fded5712cf8/'
+    //https://api.darksky.net/forecast/23e1acafd6361d2b37d06fded5712cf8/48.85341,2.3488,1598227200
+    const APPKEY_darkskykey = process.env.APPKEY_darkskykey;
     let weatherURL = 'https://api.darksky.net/forecast/'
-    weatherURL += APPKEY + lat + ',' + lng + ',' + travelDate
+    weatherURL += APPKEY_darkskykey + lat + ',' + lng + ',' + travelDate
     const encode = encodeURI(weatherURL);
     console.log(encode)
 
@@ -105,9 +100,11 @@ function getweather(travelDate, lng, lat, res) {
         console.log("there is an Error: " + err.message);
     });
 
+
     //get image from Pixabay
-    //https://pixabay.com/api/?username=wliran2&key=15704386-7829fc8791373ecd3e13541e9&q=paris
-
-
-
+    // https://pixabay.com/api/?key=15704386-7829fc8791373ecd3e13541e9&q=paris
+    const pixabayAppKey = process.env.pixabayAppKey;
+    let pixabay = 'https://pixabay.com/api/?key='
+    pixabay = pixabay + pixabayAppKey + '&q=paris'
+    console.log(pixabay)
 }

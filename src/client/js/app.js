@@ -11,6 +11,9 @@ function app(event) {
     const time = convert(timeInput);
     console.log(time)
 
+    var TravelWillBeAt = new Date(time * 1000);
+    console.log(TravelWillBeAt)
+
     function convert(date) {
         let myDate = new Date(date);
         let convert = myDate.getTime() / 1000.0;
@@ -42,13 +45,13 @@ function app(event) {
     /*updateUI()
 
     const updateUI = async() => {
-        const req = await fetch('http://localhost:8000/place')
+        const req = await fetch('http://localhost:8081/place')
         try {
             const projectData = await req.json()
             console.log('^^^^^^^^^' + projectData);
             if (projectData && projectData.length > 0) {
-                document.getElementById('tripLocation').innerHTML = projectData[projectData.length - 1].temp;
-                document.getElementById('typicalWeather').innerHTML = projectData[projectData.length - 1].date;
+                document.getElementById('tripLocation').innerHTML = projectData[projectData.length - 1].timezone;
+                document.getElementById('typicalWeather').innerHTML = projectData[projectData.length - 1].temperature;
             }
         } catch (error) {
             console.log("there is an Error at the UI: ", error)

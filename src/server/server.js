@@ -69,7 +69,7 @@ function getPlaceByParam(linkAPI, res, travelDate, placeP) {
             getPic(placeP, res);
         });
     }).on("error", (err) => {
-        console.log("there is an Error: " + err.message);
+        console.log("there is an Error geoLocation API: " + err.message);
     });
 }
 
@@ -92,7 +92,7 @@ function getweather(travelDate, lng, lat, res) {
             res.send(data)
         });
     }).on("error", (err) => {
-        console.log("there is an Error: " + err.message);
+        console.log("there is an Error at getWeather API: " + err.message);
     });
 }
 
@@ -101,7 +101,6 @@ function getPic(placeP, res) {
     const pixabayAppKey = process.env.pixabayAppKey;
     let pixabay = 'https://pixabay.com/api/?key='
     pixabay = pixabay + pixabayAppKey + '&q=' + location
-    console.log(pixabay)
     https.get(pixabay, (resp) => {
         let data = '';
         // A chunk of data has been recieved.
@@ -111,10 +110,14 @@ function getPic(placeP, res) {
         // The whole response has been received. Print out the result.
         resp.on('end', () => {
             console.log("*****************************************************")
-            console.log(JSON.parse(data));
+                //console.log(JSON.parse(data));
+            const jsonPic = JSON.parse(data)
+            const cityPic = jsonPic.hits[0].pageURL
+            console.log(cityPic)
+
             //res.send(data)
         });
     }).on("error", (err) => {
-        console.log("there is an Error: " + err.message);
+        console.log("there is an Error on getPic API: " + err.message);
     });
 }

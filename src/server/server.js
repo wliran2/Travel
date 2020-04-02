@@ -1,11 +1,9 @@
 const http = require('http');
 const https = require('https');
 
+//encrypted the API keys
 const dotenv = require('dotenv');
 dotenv.config();
-
-//const userName_key = process.env.userName_key;
-
 
 var path = require('path');
 const express = require('express');
@@ -49,16 +47,14 @@ function listening() {
 };
 
 function getPlace(req, res) {
-    //http://api.geonames.org/searchJSON?q=paris&maxRows=1&userName=wliran
     const geoAPI = 'http://api.geonames.org/searchJSON?q=';
     const userName_key = process.env.userName_key;
     const linkAPI = geoAPI + req.body.city + '&maxRows=1&userName=' + userName_key
-    getPlaceByParam(linkAPI, res, req.body.travelDate);
+    getPlaceByParam(linkAPI, res, req.body.travelDate, req.body.city);
 
 }
 
-function getPlaceByParam(linkAPI, res, travelDate) {
-    console.log(linkAPI)
+function getPlaceByParam(linkAPI, res, travelDate, placeP) {
     http.get(linkAPI, (resp) => {
         let data = '';
         // A chunk of data has been recieved.
@@ -70,6 +66,7 @@ function getPlaceByParam(linkAPI, res, travelDate) {
             console.log(JSON.parse(data));
             const jsonData = JSON.parse(data)
             getweather(travelDate, jsonData.geonames[0].lng, jsonData.geonames[0].lat, res);
+            getPic(placeP, res);
         });
     }).on("error", (err) => {
         console.log("there is an Error: " + err.message);
@@ -77,7 +74,6 @@ function getPlaceByParam(linkAPI, res, travelDate) {
 }
 
 function getweather(travelDate, lng, lat, res) {
-    //https://api.darksky.net/forecast/23e1acafd6361d2b37d06fded5712cf8/48.85341,2.3488,1598227200
     const APPKEY_darkskykey = process.env.APPKEY_darkskykey;
     let weatherURL = 'https://api.darksky.net/forecast/'
     weatherURL += APPKEY_darkskykey + lat + ',' + lng + ',' + travelDate
@@ -99,12 +95,13 @@ function getweather(travelDate, lng, lat, res) {
     }).on("error", (err) => {
         console.log("there is an Error: " + err.message);
     });
+}
 
-
-    //get image from Pixabay
-    // https://pixabay.com/api/?key=15704386-7829fc8791373ecd3e13541e9&q=paris
+function getPic(placeP, res) {
+    const location = placeP
     const pixabayAppKey = process.env.pixabayAppKey;
     let pixabay = 'https://pixabay.com/api/?key='
-    pixabay = pixabay + pixabayAppKey + '&q=paris'
+    pixabay = pixabay + pixabayAppKey + '&q=' + location
     console.log(pixabay)
+
 }

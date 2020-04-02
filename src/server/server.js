@@ -78,7 +78,6 @@ function getweather(travelDate, lng, lat, res) {
     let weatherURL = 'https://api.darksky.net/forecast/'
     weatherURL += APPKEY_darkskykey + lat + ',' + lng + ',' + travelDate
     const encode = encodeURI(weatherURL);
-    console.log(encode)
 
     https.get(encode, (resp) => {
         let data = '';
@@ -103,5 +102,19 @@ function getPic(placeP, res) {
     let pixabay = 'https://pixabay.com/api/?key='
     pixabay = pixabay + pixabayAppKey + '&q=' + location
     console.log(pixabay)
-
+    https.get(pixabay, (resp) => {
+        let data = '';
+        // A chunk of data has been recieved.
+        resp.on('data', (chunk) => {
+            data += chunk;
+        });
+        // The whole response has been received. Print out the result.
+        resp.on('end', () => {
+            console.log("*****************************************************")
+            console.log(JSON.parse(data));
+            //res.send(data)
+        });
+    }).on("error", (err) => {
+        console.log("there is an Error: " + err.message);
+    });
 }

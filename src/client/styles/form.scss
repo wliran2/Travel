@@ -16,6 +16,10 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
+.holder-entry {
+    display: flex;
+}
+
 .entry {
     background: rgba(59, 74, 107, .4);
 }
@@ -107,4 +111,27 @@ button:focus {
     /* Microsoft Edge */
     color: #000000;
     font-family: 'Oswald', sans-serif;
+}
+
+#tripLocationTitle {
+    color: #fafafa;
+}
+
+#typicalWeatherTitle {
+    color: #fafafa;
+}
+
+#counterTitle {
+    color: #fafafa;
+}
+
+.holder-headline {
+    display: inline-flex;
+    background-color: #567556;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px;
+    font-size: x-large;
+    font-family: cursive;
+    color: aliceblue;
 }

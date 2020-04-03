@@ -4,15 +4,14 @@ function app(event) {
     const timeInput = document.getElementById('date').value;
     console.log(newPlace)
     console.log(timeInput)
-        //current date
+
+    //current date now
     const now = Math.floor(new Date().getTime() / 1000.0);
     console.log(now)
-        //input date from the user
+
+    //input date from the user
     const time = convert(timeInput);
     console.log(time)
-
-    var TravelWillBeAt = new Date(time * 1000);
-    console.log(TravelWillBeAt)
 
     function convert(date) {
         let myDate = new Date(date);
@@ -42,22 +41,18 @@ function app(event) {
     }
     getPlace('http://localhost:8081/place', { city: newPlace, travelDate: time })
 
-    /*updateUI()
+    updateUI(newPlace, time, )
 
-    const updateUI = async() => {
-        const req = await fetch('http://localhost:8081/place')
-        try {
-            const projectData = await req.json()
-            console.log('^^^^^^^^^' + projectData);
-            if (projectData && projectData.length > 0) {
-                document.getElementById('tripLocation').innerHTML = projectData[projectData.length - 1].timezone;
-                document.getElementById('typicalWeather').innerHTML = projectData[projectData.length - 1].temperature;
-            }
-        } catch (error) {
-            console.log("there is an Error at the UI: ", error)
-        }
+    function updateUI(place, time) {
+
+        //date of the planned trip
+        let TravelWillBeAt = new Date(time * 1000);
+        document.getElementById('tripLocation').innerHTML = (place + ', at ' + TravelWillBeAt)
+        document.getElementById('typicalWeather').innerHTML
+        document.getElementById('counter').innerHTML
+
     }
-    */
+
 
 };
 

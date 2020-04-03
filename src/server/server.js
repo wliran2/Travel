@@ -114,8 +114,8 @@ function getPic(placeP, res) {
             const jsonPic = JSON.parse(data)
             const cityPic = jsonPic.hits[0].pageURL
             console.log(cityPic)
+                //res.send(data)
 
-            //res.send(data)
         });
     }).on("error", (err) => {
         console.log("there is an Error on getPic API: " + err.message);

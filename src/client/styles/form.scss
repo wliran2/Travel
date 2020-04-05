@@ -4,10 +4,7 @@ body {
 }
 
 #app {
-    display: grid;
-    grid-auto-rows: minmax(150px);
-    /* grid-template-columns:  */
-    height: 250px;
+    display: inline-block;
     background: #615151;
     color: #ddbf14;
     justify-content: center;

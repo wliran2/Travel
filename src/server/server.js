@@ -47,9 +47,9 @@ function listening() {
 };
 
 function getPlace(req, res) {
-    const geoAPI = 'http://api.geonames.org/searchJSON?q=';
+    const geoAPI_key = process.env.geoAPI_key;
     const userName_key = process.env.userName_key;
-    const linkAPI = geoAPI + req.body.city + '&maxRows=1&userName=' + userName_key
+    const linkAPI = geoAPI_key + req.body.city + '&maxRows=1&userName=' + userName_key
     getPlaceByParam(linkAPI, res, req.body.travelDate, req.body.city);
 
 }
@@ -75,9 +75,9 @@ function getPlaceByParam(linkAPI, res, travelDate, placeP) {
 
 function getweather(travelDate, lng, lat, res) {
     const APPKEY_darkskykey = process.env.APPKEY_darkskykey;
-    let weatherURL = 'https://api.darksky.net/forecast/'
-    weatherURL += APPKEY_darkskykey + lat + ',' + lng + ',' + travelDate
-    const encode = encodeURI(weatherURL);
+    let weatherURL_key = process.env.weatherURL_key;
+    weatherURL_key += APPKEY_darkskykey + lat + ',' + lng + ',' + travelDate
+    const encode = encodeURI(weatherURL_key);
 
     https.get(encode, (resp) => {
         let data = '';
@@ -99,9 +99,9 @@ function getweather(travelDate, lng, lat, res) {
 function getPic(placeP, res) {
     const location = placeP
     const pixabayAppKey = process.env.pixabayAppKey;
-    let pixabay = 'https://pixabay.com/api/?key='
-    pixabay = pixabay + pixabayAppKey + '&q=' + location
-    https.get(pixabay, (resp) => {
+    let pixabay_key = process.env.pixabay_key
+    pixabay_key = pixabay_key + pixabayAppKey + '&q=' + location
+    https.get(pixabay_key, (resp) => {
         let data = '';
         // A chunk of data has been recieved.
         resp.on('data', (chunk) => {

@@ -41,19 +41,15 @@ function app(event) {
     }
     getPlace('http://localhost:8081/place', { city: newPlace, travelDate: time })
 
-    updateUI(newPlace, time, )
+    updateUI(newPlace, time)
 
     function updateUI(place, time) {
-
         //date of the planned trip
         let TravelWillBeAt = new Date(time * 1000);
         document.getElementById('tripLocation').innerHTML = (place + ', at ' + TravelWillBeAt)
         document.getElementById('typicalWeather').innerHTML
         document.getElementById('counter').innerHTML
-
     }
-
-
 };
 
 export { app }

@@ -1,4 +1,5 @@
 # Project Requirements:
+FEND Capstone Project: Travel App
 
 ### Your project must:
 
@@ -10,14 +11,13 @@
 
 - [V] Have a minimum of one form field
 
-- [V] Make one request to the Aylien API
+- [V] Make 3 request to the 3 diffrent API's
 
 - [V] Use Sass for styling
-
-- [V] Minify js and styles in the production environment
 
 - [V] Response from the API must be added to the view for a user to see 
 
 - [X] Be able to show content offline
 
-All of these requirements are explained throughout the course. Specifics on setting up the Aylien API are found in the README file of this repo.
+All of these requirements are explained throughout the course. Specifics on setting up the 3 API's are found in the README file of this repo.
+

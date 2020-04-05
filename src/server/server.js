@@ -110,7 +110,6 @@ function getPic(placeP, res) {
         // The whole response has been received. Print out the result.
         resp.on('end', () => {
             console.log("*****************************************************")
-                //console.log(JSON.parse(data));
             const jsonPic = JSON.parse(data)
             const cityPic = jsonPic.hits[0].pageURL
             console.log(cityPic)

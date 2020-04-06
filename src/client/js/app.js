@@ -26,30 +26,34 @@ function app(event) {
             credentials: 'same-origin',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify(data),
-
         });
+
         try {
             const newData = await response.json();
             console.log(newData);
-            return newData;
+            updateUI(data.city, data.travelDate)
+            document.getElementById('typicalWeather').innerHTML = newData.temp != 'no value' ? newData.temp : ' ';
+            document.getElementById('city_img').src = newData.picture
+                //return newData;
         } catch (error) {
             console.log("there is an Error: ", error);
         }
     }
+
     getPlace('http://localhost:8081/place', { city: newPlace, travelDate: time })
 
-    updateUI(newPlace, time)
 
     function updateUI(place, time) {
         //date of the planned trip
         let TravelWillBeAt = new Date(time * 1000);
         document.getElementById('tripLocation').innerHTML = (place + ', at ' + TravelWillBeAt)
-        document.getElementById('typicalWeather').innerHTML
         document.getElementById('counter').innerHTML
     }
+
+
+
 };
 
 export { app }

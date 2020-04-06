@@ -34,12 +34,14 @@ app.use(express.static('dist'));
 app.get('/place', getPlaceByParam);
 
 // POST from site
-const data = [];
+let userData;
 app.post('/place', getPlace)
 
 // Setup Server
 const port = 8081;
 const server = app.listen(port, listening);
+
+
 
 function listening() {
     console.log('The server is running!!!');
@@ -47,6 +49,10 @@ function listening() {
 };
 
 function getPlace(req, res) {
+    userData = {
+        temp: 'no value',
+        picture: "/src/client/styles/noResult.jpg"
+    };
     const geoAPI_key = process.env.geoAPI_key;
     const userName_key = process.env.userName_key;
     const linkAPI = geoAPI_key + req.body.city + '&maxRows=1&userName=' + userName_key
@@ -65,15 +71,15 @@ function getPlaceByParam(linkAPI, res, travelDate, placeP) {
         resp.on('end', () => {
             console.log(JSON.parse(data));
             const jsonData = JSON.parse(data)
-            getweather(travelDate, jsonData.geonames[0].lng, jsonData.geonames[0].lat, res);
-            getPic(placeP, res);
+            getweather(travelDate, jsonData.geonames[0].lng, jsonData.geonames[0].lat, placeP, res);
+
         });
     }).on("error", (err) => {
         console.log("there is an Error geoLocation API: " + err.message);
     });
 }
 
-function getweather(travelDate, lng, lat, res) {
+function getweather(travelDate, lng, lat, placeP, res) {
     const APPKEY_darkskykey = process.env.APPKEY_darkskykey;
     let weatherURL_key = process.env.weatherURL_key;
     weatherURL_key += APPKEY_darkskykey + lat + ',' + lng + ',' + travelDate
@@ -89,7 +95,9 @@ function getweather(travelDate, lng, lat, res) {
         resp.on('end', () => {
             console.log("*****************************************************")
             console.log(JSON.parse(data));
-            res.send(data)
+            userData.temp = JSON.parse(data).currently.temperature;
+            getPic(placeP, res);
+
         });
     }).on("error", (err) => {
         console.log("there is an Error at getWeather API: " + err.message);
@@ -111,9 +119,10 @@ function getPic(placeP, res) {
         resp.on('end', () => {
             console.log("*****************************************************")
             const jsonPic = JSON.parse(data)
-            const cityPic = jsonPic.hits[0].pageURL
+            const cityPic = jsonPic.hits[0].webformatURL
+            userData.picture = cityPic
             console.log(cityPic)
-                //res.send(data)
+            res.send(userData)
 
         });
     }).on("error", (err) => {

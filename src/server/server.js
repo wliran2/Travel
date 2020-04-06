@@ -51,7 +51,7 @@ function listening() {
 function getPlace(req, res) {
     userData = {
         temp: 'no value',
-        picture: "/src/client/styles/noResult.jpg"
+        picture: '/src/client/styles/noResult.jpg'
     };
     const geoAPI_key = process.env.geoAPI_key;
     const userName_key = process.env.userName_key;

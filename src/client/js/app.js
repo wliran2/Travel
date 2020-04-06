@@ -5,10 +5,6 @@ function app(event) {
     console.log(newPlace)
     console.log(timeInput)
 
-    //current date now
-    const now = Math.floor(new Date().getTime() / 1000.0);
-    console.log(now)
-
     //input date from the user
     const time = convert(timeInput);
     console.log(time)
@@ -48,8 +44,13 @@ function app(event) {
     function updateUI(place, time) {
         //date of the planned trip
         let TravelWillBeAt = new Date(time * 1000);
-        document.getElementById('tripLocation').innerHTML = (place + ', at ' + TravelWillBeAt)
-        document.getElementById('counter').innerHTML
+
+        //current date now
+        const now = Math.floor(new Date().getTime() / 1000.0);
+        let duedate = now - TravelWillBeAt;
+
+        document.getElementById('tripLocation').innerHTML = place + ', at ' + TravelWillBeAt.toDateString()
+        document.getElementById('counter').innerHTML = duedate
     }
 
 

@@ -30,7 +30,7 @@ function app(event) {
             const newData = await response.json();
             console.log(newData);
             updateUI(data.city, data.travelDate)
-            document.getElementById('typicalWeather').innerHTML = newData.temp != 'no value' ? newData.temp : ' ';
+            document.getElementById('typicalWeather').innerHTML = newData.temp != 'no value' ? newData.temp : 'we did got a temp for this location';
             document.getElementById('city_img').src = newData.picture
                 //return newData;
         } catch (error) {

@@ -9,9 +9,6 @@ var path = require('path');
 const express = require('express');
 var bodyParser = require('webpack-body-parser');
 
-// Setup empty JS object to act as endpoint for all routes
-projectData = {};
-
 // Start up an instance of app
 const app = express();
 

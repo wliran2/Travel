@@ -3,8 +3,10 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+.container {}
+
 #app {
-    display: inline-block;
+    display: flex;
     background: #615151;
     width: -webkit-fill-available;
     color: #ddbf14;
@@ -49,6 +51,10 @@ label {
 #city_title {
     display: block;
     font-size: 20px;
+}
+
+#city_img {
+    display: inline-flex;
 }
 
 #date_title {

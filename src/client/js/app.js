@@ -30,7 +30,7 @@ function app(event) {
             const newData = await response.json();
             console.log(newData);
             updateUI(data.city, data.travelDate)
-            document.getElementById('typicalWeather').innerHTML = newData.temp != 'no value' ? newData.temp : 'we did got a temp for this location ';
+            document.getElementById('typicalWeather').innerHTML = newData.temp != 'no value' ? newData.temp + ' &#8457' : 'we did got a temp for this location ';
             document.getElementById('city_img').src = newData.picture
                 //return newData;
         } catch (error) {
@@ -44,7 +44,6 @@ function app(event) {
     function updateUI(place, time) {
         //date of the planned trip
         let TravelWillBeAt = new Date(time * 1000);
-
         //current date now
         const now = Math.floor(new Date().getTime() / 1000.0);
         let gap = time - now
@@ -52,9 +51,8 @@ function app(event) {
         gap = (gap / 86400);
         document.getElementById('tripLocation').innerHTML = place + ', at ' + TravelWillBeAt.toDateString()
         document.getElementById('counter').innerHTML = Math.round(gap) + ' days'
+
     }
-
-
 
 };
 

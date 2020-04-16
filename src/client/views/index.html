@@ -14,7 +14,7 @@
             <img src="/src/client/styles/logo.jpg" alt="logo">
         </div>
         <div class="title">
-            please enter the City & Date that you would like to Travel:
+            Visit & Find your next adventure , World's Best Places
         </div>
     </header>
 
@@ -24,7 +24,7 @@
                 <div id="err"></div>
                 <br>
                 <label for="city" id="city_title">Enter the city name:</label>
-                <input id="place" type="text" name="input" value="" placeholder="enter a place">
+                <input id="place" type="text" name="input" value="" placeholder="enter a place" required>
                 <label for="Date" id="date_title">Enter the Date:(mandatory template)</label>
                 <input id="date" type="date" name="input" value="" placeholder="mm/dd/yyyy">
                 <input type="submit" id="button" name="button" value="Generat" onclick="return Client.app(event)" onsubmit="return app(event)">
@@ -46,7 +46,7 @@
                     <div id="typicalWeatherTitle">The temperature for then is:</div>
                     <div id="typicalWeather"></div>
                     <div id="counterTitle">counter to your Travel:</div>
-                    <div id="counter"></div>
+                    <div id="counter"> </div>
                 </div>
 
             </div>
@@ -58,6 +58,9 @@
         <p>Liran weisbord - project num# 6</p>
         <div>
             <button id="printBTN" onclick="window.print()">Print this page</button>
+        </div>
+        <div>
+            <button id=toDoBTN> <a href="src/client/views/todoPage.html" title="go to toDo list">ToDo list</a></button>
         </div>
     </footer>
 </body>

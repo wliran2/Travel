@@ -4,6 +4,8 @@ function app(event) {
     const timeInput = document.getElementById('date').value;
     console.log(newPlace)
     console.log(timeInput)
+    document.getElementById("placeERR").innerHTML = '';
+    document.getElementById("dateERR").innerHTML = '';
     if (!valid(newPlace, timeInput)) return
 
     //input date from the user

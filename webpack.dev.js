@@ -42,7 +42,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './src/client/views/todoPage.html',
             inject: true,
-            chunks: ['toDo'],
+            chunks: ['index'],
             filename: 'todoPage.html'
         }),
 

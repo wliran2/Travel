@@ -28,8 +28,17 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './src/client/views/index.html',
-            filename: './index.html',
+            template: "./src/client/views/index.html",
+            inject: true,
+            chunks: ['index'],
+            filename: "./index.html",
+        }),
+
+        new HtmlWebPackPlugin({
+            template: './src/client/views/todoPage.html',
+            inject: true,
+            chunks: ['index'],
+            filename: 'todoPage.html'
         }),
 
     ]

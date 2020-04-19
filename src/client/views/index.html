@@ -20,16 +20,15 @@
 
     <main>
         <section>
-            <form class="" onsubmit="return app(event)">
-                <div id="err"></div>
+            <form class="" onsubmit="Client.app(event)">
                 <br>
                 <label for="city" id="city_title">Enter the city name:</label>
-                <input id="place" type="text" name="input" value="" placeholder="enter a place" required>
+                <input id="place" type="text" name="input" value="" placeholder="enter a place">
                 <div id="placeERR"> </div>
                 <label for="Date" id="date_title">Date of Departure:</label>
                 <input id="date" type="date" name="input" value="" placeholder="mm/dd/yyyy">
                 <div id="dateERR"> </div>
-                <input type="submit" id="button" name="button" value="Generate" onclick="Client.app(event)" onsubmit="return app(event)">
+                <input type="submit" id="button" name="button" value="Generate">
             </form>
             <br>
 

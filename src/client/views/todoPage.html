@@ -12,14 +12,14 @@
     <div>
         <h1>My ToDo list: </h1>
 
-        <form onsubmit="return toDo(event)">
+        <form onsubmit="Client.toDo(event)">
             <input id="item" type="text" placeholder="Enter Your New item" />
         </form>
 
         <h2>Items</h2>
         <ul></ul>
 
-        <button>Clear All</button>
+        <button onclick="Client.clearToDoList()">Clear All</button>
     </div>
     <footer>
         <p>Liran weisbord - project num# 6-Page 2 </p>

@@ -3,7 +3,9 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.container {}
+.toDo-container {
+    background-color: coral;
+}
 
 #app {
     display: flex;

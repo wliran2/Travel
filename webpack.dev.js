@@ -4,7 +4,10 @@ const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: {
+        index: './src/client/index.js',
+        toDo: './src/client/js/toDo.js',
+    },
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
@@ -31,7 +34,16 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
+            inject: true,
+            chunks: ['index'],
             filename: "./index.html",
+        }),
+
+        new HtmlWebPackPlugin({
+            template: "./src/client/views/todoPage.html",
+            inject: true,
+            chunks: ['toDo'],
+            filename: "todoPage.html",
         }),
 
         new CleanWebpackPlugin({
@@ -44,5 +56,5 @@ module.exports = {
             protectWebpackAssets: false
         }),
 
-    ]
+    ],
 }

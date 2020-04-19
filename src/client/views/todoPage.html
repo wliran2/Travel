@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo List for TravelApp</title>
-    <link rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
-    <div class="small-container" onsubmit="return toDo(e)">
+    <div class="toDo-container" onclick="return Client.toDo(e)" onsubmit="return toDo(e)">
         <h1>My ToDo list: </h1>
 
         <form>
@@ -21,10 +21,12 @@
 
         <button>Clear All</button>
     </div>
-    <div class="backButton">
-        <button id="backbtn"><a href="index.html">back to Travel</button></a>
-    </div>
-    <!-- <script src="./js/toDo.js"></script> -->
+    <footer>
+        <p>Liran weisbord - project num# 6-Page 2 </p>
+        <div class="backButton">
+            <button id="backbtn"><a href="/index.html">back to Travel</button></a>
+        </div>
+    </footer>
 </body>
 
 </html>

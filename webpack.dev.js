@@ -40,10 +40,10 @@ module.exports = {
         }),
 
         new HtmlWebPackPlugin({
-            template: "./src/client/views/todoPage.html",
+            template: './src/client/views/todoPage.html',
             inject: true,
             chunks: ['toDo'],
-            filename: "todoPage.html",
+            filename: 'todoPage.html'
         }),
 
         new CleanWebpackPlugin({
@@ -56,5 +56,5 @@ module.exports = {
             protectWebpackAssets: false
         }),
 
-    ],
+    ]
 }

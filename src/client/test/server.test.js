@@ -1,5 +1,5 @@
-const { server } = require('../js/server/');
+const { server } = require('.src/server/');
 
 test("It should get a response from method", () => {
-    expect(200);
+    expect(response.status).toBe(200)
 });

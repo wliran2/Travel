@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo List for TravelApp</title>
 </head>
 
-<body>
-    <div class="toDo-container" onsubmit="return toDo(e)">
+<body class="toDocontainer">
+    <div>
         <h1>My ToDo list: </h1>
 
-        <form>
-            <input id="item" type="text" placeholder="Enter Your New item" required />
+        <form onsubmit="return toDo(event)">
+            <input id="item" type="text" placeholder="Enter Your New item" />
         </form>
 
         <h2>Items</h2>

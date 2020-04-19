@@ -3,8 +3,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.toDo-container {
-    background-color: coral;
+.toDocontainer {
+    background-color: darkseagreen;
 }
 
 #app {
@@ -48,6 +48,14 @@ label {
     display: inline-block;
     color: black;
     background-color: rgb(255, 255, 255);
+}
+
+#placeERR {
+    color: red;
+}
+
+#dateERR {
+    color: red;
 }
 
 #city_title {

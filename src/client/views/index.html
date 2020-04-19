@@ -25,8 +25,10 @@
                 <br>
                 <label for="city" id="city_title">Enter the city name:</label>
                 <input id="place" type="text" name="input" value="" placeholder="enter a place" required>
+                <div id="placeERR"> </div>
                 <label for="Date" id="date_title">Date of Departure:</label>
                 <input id="date" type="date" name="input" value="" placeholder="mm/dd/yyyy">
+                <div id="dateERR"> </div>
                 <input type="submit" id="button" name="button" value="Generate" onclick="return Client.app(event)" onsubmit="return app(event)">
             </form>
             <br>
@@ -60,7 +62,7 @@
             <button id="printBTN" onclick="window.print()">Print this page</button>
         </div>
         <div>
-            <button id=toDoBTN> <a href="src/client/views/todoPage.html" title="go to toDo list">ToDo list</a></button>
+            <button id=toDoBTN> <a href="src/client/views/todoPage.html" title="go to toDo list">My ToDo list</a></button>
         </div>
     </footer>
 </body>

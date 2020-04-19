@@ -14,5 +14,4 @@ import './styles/noResult.jpg'
 export {
     app,
     toDo,
-
 }

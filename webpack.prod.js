@@ -1,8 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const WorkboxPlugin = require('workbox-webpack-plugin')
-
 
 module.exports = {
     entry: {
@@ -32,6 +31,12 @@ module.exports = {
         ]
     },
     plugins: [
+
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
+
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             inject: true,
@@ -46,10 +51,7 @@ module.exports = {
             filename: 'todoPage.html'
         }),
 
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true,
-        }),
+
 
 
     ]

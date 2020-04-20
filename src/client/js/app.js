@@ -2,18 +2,16 @@ function app(event) {
     event.preventDefault()
     const newPlace = document.getElementById('place').value;
     const timeInput = document.getElementById('date').value;
-    console.log(newPlace)
-    console.log(timeInput)
     document.getElementById("placeERR").innerHTML = '';
     document.getElementById("dateERR").innerHTML = '';
     if (!valid(newPlace, timeInput)) return
 
     //input date from the user
     const time = convert(timeInput);
-    console.log(time)
+    //console.log(time)  - print the time on ms.
 
     const getPlace = async(url = '', data = {}) => {
-        console.log(data);
+        //console.log(data);
         const response = await fetch(url, {
             method: 'POST',
             credentials: 'same-origin',
@@ -25,11 +23,10 @@ function app(event) {
 
         try {
             const newData = await response.json();
-            console.log(newData);
+            //console.log(newData);
             updateUI(data.city, data.travelDate)
             document.getElementById('typicalWeather').innerHTML = newData.temp != 'no value' ? newData.temp + ' &#8457' : 'we did got a temp for this location ';
             document.getElementById('city_img').src = newData.picture
-                //return newData;
         } catch (error) {
             console.log("there is an Error: ", error);
         }
@@ -63,7 +60,7 @@ function updateUI(place, time) {
     //current date now
     const now = Math.floor(new Date().getTime() / 1000.0);
     let gap = time - now
-    console.log(gap)
+        //console.log(gap) print the gap
     gap = (gap / 86400);
     document.getElementById('tripLocation').innerHTML = place + ', at ' + TravelWillBeAt.toDateString()
     document.getElementById('counter').innerHTML = Math.round(gap) + ' days'

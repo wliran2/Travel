@@ -1,11 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'production',
     devtool: 'source-map',
-    entry: './src/client/index.js',
+    entry: {
+        index: './src/client/index.js',
+        toDo: './src/client/js/toDo.js',
+    },
     output: {
         libraryTarget: 'var',
         library: 'Client'
@@ -40,6 +44,9 @@ module.exports = {
             chunks: ['index'],
             filename: 'todoPage.html'
         }),
-
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
     ]
 }

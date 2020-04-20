@@ -1,9 +1,11 @@
 const { valid } = require('../js/app');
 
-test('check that the city is empty', () => {
-    expect(valid('newPlace')).toBe(true);
-});
+describe('check the Error message', () => {
+    describe('empty Place', () => {
+        it('check the place is empty', () => {
+            const result = valid('');
 
-test("It should get a response from method", () => {
-    expect(200);
+            expect(result).toBe(false);
+        });
+    });
 });

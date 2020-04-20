@@ -37,12 +37,18 @@ function app(event) {
 };
 
 function valid(place, time) {
+
+    const emptyCity = document.getElementById("placeERR");
+    const emptyTime = document.getElementById("dateERR");
+
     if (!place || place.langth == 0) {
-        document.getElementById("placeERR").innerHTML = "City name cant be empty"
+        if (emptyCity)
+            emptyCity.innerHTML = "City name cant be empty"
         return false;
     }
     if (!time || time.langth == 0) {
-        document.getElementById("dateERR").innerHTML = "Date of Departure cant be empty"
+        if (emptyTime)
+            emptyTime.innerHTML = "Date of Departure cant be empty"
         return false;
     }
     return true;
@@ -66,4 +72,4 @@ function updateUI(place, time) {
     document.getElementById('counter').innerHTML = Math.round(gap) + ' days'
 }
 
-export { app }
+export { app, valid }

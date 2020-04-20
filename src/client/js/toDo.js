@@ -19,9 +19,11 @@ function liMaker(text) {
     ul.appendChild(li)
 }
 
-itemsArray.forEach(item => {
-    liMaker(item)
-})
+function toDoInit() {
+    itemsArray.forEach(item => {
+        liMaker(item)
+    })
+}
 
 function clearToDoList() {
     itemsArray = [];
@@ -31,4 +33,4 @@ function clearToDoList() {
     }
 }
 
-export { toDo, clearToDoList }
+export { toDo, clearToDoList, toDoInit }

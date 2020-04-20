@@ -65,21 +65,17 @@
         </div>
     </footer>
 
-    <script>
-        //Check that service workers are supported
+    <!-- <script>
+        // Check that service workers are supported
         if ('serviceWorker' in navigator) {
             // Use the window load event to keep the page load performant
+            console.log("service worker test")
             window.addEventListener('load', () => {
-                console.log("service worker test")
-                navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                        for (let registration of registrations) {
-                            registration.unregister()
-                        }
-                    })
-                    //navigator.serviceWorker.register('/service-worker.js');
+                navigator.serviceWorker.register('/service-worker.js');
             });
         }
-    </script>
+    </script> -->
+
 </body>
 
 </html>

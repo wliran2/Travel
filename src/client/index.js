@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import { app } from './js/app'
-import { toDo, clearToDoList } from './js/toDo'
+import { toDo, clearToDoList, toDoInit } from './js/toDo'
 
 
 import './styles/resets.scss'
@@ -16,4 +16,5 @@ export {
     app,
     toDo,
     clearToDoList,
+    toDoInit,
 }

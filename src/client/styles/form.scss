@@ -4,7 +4,10 @@ body {
 }
 
 .toDocontainer {
-    background-color: darkseagreen;
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #app {
@@ -92,6 +95,13 @@ input {
     border-radius: 15px;
     box-shadow: 5px 5px 5px #444;
     margin-left: 55px;
+}
+
+#clearBTN {
+    width: 150px;
+    height: 50px;
+    background-color: #165bf0;
+    color: aliceblue;
 }
 
 h1 {

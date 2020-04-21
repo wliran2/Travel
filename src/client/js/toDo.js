@@ -33,4 +33,4 @@ function clearToDoList() {
     }
 }
 
-export { toDo, clearToDoList, toDoInit }
+export { toDo, clearToDoList, toDoInit, liMaker }

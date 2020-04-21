@@ -32,10 +32,6 @@ module.exports = {
     },
     plugins: [
 
-        new WorkboxPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true,
-        }),
 
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
@@ -50,7 +46,12 @@ module.exports = {
             chunks: ['index'],
             filename: 'todoPage.html'
         }),
-
+        /*
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+        }),
+        */
     ]
 
 

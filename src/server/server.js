@@ -29,7 +29,7 @@ app.use(express.static('dist'));
 
 //GET route
 app.get('/place', getPlaceByParam);
-app.get('service-worker', ServiceWorker)
+
 
 // POST from site
 let userData;

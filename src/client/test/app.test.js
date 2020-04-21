@@ -2,7 +2,7 @@ const { valid } = require('../js/app');
 
 describe('check the Valid Function', () => {
     describe('empty Place', () => {
-        it('check the place is empty', () => {
+        it('check the error when place is empty', () => {
             const result = valid('');
 
             expect(result).toBe(false);
@@ -16,8 +16,6 @@ describe('check the Valid Function', () => {
             expect(result).toBe(false);
         });
     });
-
-
 
 
 });

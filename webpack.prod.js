@@ -51,9 +51,6 @@ module.exports = {
             filename: 'todoPage.html'
         }),
 
-
-
-
     ]
 
 

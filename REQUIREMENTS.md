@@ -17,7 +17,7 @@ FEND Capstone Project: Travel App
 
 - [V] Response from the API must be added to the view for a user to see 
 
-- [X] Be able to show content offline
+- [V] Be able to show content offline - on the 2nd page i used Local Storage
 
 All of these requirements are explained throughout the course. Specifics on setting up the 3 API's are found in the README file of this repo.
 

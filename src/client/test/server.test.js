@@ -5,7 +5,7 @@ describe('test for server side', () => {
         it('check that the port is right', () => {
             const result = listening();
 
-            expect(result).toBe();
+            expect(result).toBe(undefined);
         });
     });
 

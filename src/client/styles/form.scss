@@ -97,6 +97,20 @@ input {
     margin-left: 55px;
 }
 
+#clearApp {
+    width: 250px;
+    height: 50px;
+    background-color: #165bf0;
+    color: aliceblue;
+    font-size: 23px;
+    font-family: 'Oswald', sans-serif;
+    border: 15PX;
+    margin: 15px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #444;
+    margin-left: 55px;
+}
+
 #clearBTN {
     width: 150px;
     height: 50px;
@@ -160,4 +174,50 @@ button:focus {
     font-size: x-large;
     font-family: cursive;
     color: aliceblue;
+}
+
+
+/* Medium devices (laptops/desktops,tablets, 768px and up) */
+
+@media only screen and (max-width: 1082px) {
+    #app {
+        flex-direction: column;
+        background-color: rgb(93, 167, 185);
+    }
+    .holder-entry {
+        flex-direction: column;
+    }
+}
+
+
+/* small devices (mobiles... */
+
+@media only screen and (max-width: 728px) {
+    header {
+        flex-direction: column;
+    }
+    #app {
+        flex-direction: column;
+        background-color: rgb(93, 167, 185);
+    }
+    .holder-entry {
+        flex-direction: column;
+    }
+    #city_img {
+        display: inline-flex;
+        width: 450px;
+    }
+    footer {
+        height: 45px;
+    }
+}
+
+@media only screen and (max-width: 568px) {
+    #city_img {
+        display: inline-flex;
+        width: 364px;
+    }
+    footer {
+        height: 77px;
+    }
 }

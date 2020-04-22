@@ -39,11 +39,10 @@ app.post('/place', getPlace)
 const port = 8081;
 const server = app.listen(port, listening);
 
-
-
 function listening() {
     console.log('The server is running!!!');
     console.log(`running on localhost: ${port}`);
+
 };
 
 function getPlace(req, res) {

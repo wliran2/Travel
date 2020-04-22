@@ -72,4 +72,14 @@ function updateUI(place, time) {
     document.getElementById('counter').innerHTML = Math.round(gap) + ' days'
 }
 
-export { app, valid }
+function clearApp() {
+    event.preventDefault()
+    document.getElementById('place').value = '';
+    document.getElementById('date').value = '';
+    document.getElementById("placeERR").innerHTML = '';
+    document.getElementById("dateERR").innerHTML = '';
+
+}
+
+
+export { app, valid, clearApp, }

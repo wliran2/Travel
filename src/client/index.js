@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import { app } from './js/app'
+import { app, clearApp } from './js/app'
 import { toDo, clearToDoList, toDoInit } from './js/toDo'
 
 
@@ -14,6 +14,7 @@ import './styles/noResult.jpg'
 
 export {
     app,
+    clearApp,
     toDo,
     clearToDoList,
     toDoInit,
